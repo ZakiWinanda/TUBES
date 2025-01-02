@@ -54,23 +54,7 @@
                         placeholder="Confirm Your Password" class="w-full px-4 py-2 border border-gray-300 rounded-lg"
                         required>
                 </div>
-                <div class="mb-4">
-                    <select id="role" name="role"
-                        class="w-full px-4 py-2 border border-gray-300 rounded-lg bg-white @error('role') border-red-500 @enderror">
-                        <option value="" disabled selected>Select Role</option>
-                        @foreach ($roles as $role)
-                            <option value="{{ $role }}" {{ old('role') == $role ? 'selected' : '' }}>
-                                {{ ucfirst($role) }}
-                            </option>
-                        @endforeach
-                    </select>
-
-                    @error('role')
-                        <span class="text-sm text-red-500 mt-2 block">
-                            <strong>{{ $message }}</strong>
-                        </span>
-                    @enderror
-                </div>
+                
                 <hr class="my-6">
                 <button type="submit"
                     class="w-full py-2 bg-blue-500 text-white font-bold rounded-lg hover:bg-blue-600 transition">

@@ -22,14 +22,10 @@ class RegisterController extends Controller
         $this->middleware('guest');
     }
 
-    
     public function showRegistrationForm()
     {
-
-        $roles = ['admin', 'buyer'];
-        return view('auth.register', compact('roles'));
+        return view('auth.register'); // Form tidak perlu memiliki input role
     }
-
 
     protected function validator(array $data)
     {
@@ -37,10 +33,8 @@ class RegisterController extends Controller
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
-            'role' => ['required', 'string', 'in:admin,buyer'], // Validasi role
         ]);
     }
-
 
     protected function create(array $data)
     {
@@ -48,10 +42,9 @@ class RegisterController extends Controller
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
-            'role' => $data['role'], // Menyimpan role
+            'role_id' => 2, // Tetapkan role_id sebagai 2 untuk buyer
         ]);
     }
-
 
     public function register(Request $request)
     {
