@@ -7,8 +7,8 @@ use App\Http\Controllers\Auth\RegisterController;
 
 
 Route::get('/', function () {
-    return view('welcome');
-})->name('welcome');
+    return view('index');
+})->name('index');
 
 
 Auth::routes();
