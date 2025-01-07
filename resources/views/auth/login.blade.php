@@ -5,48 +5,46 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('css/login.css') }}">
+    <link href="https://fonts.bunny.net/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+    <title>Interio.</title>
 </head>
 
 <body>
-    <div class="bg-yellow-500 h-screen flex justify-center items-center">
-        <div class="bg-white p-8 rounded-lg shadow-lg w-80">
-            <div class="text-center mb-6">
-                <img src="{{ Vite::asset('resources/images/logo.png') }}" alt="Logo" class="mx-auto w-24 h-24 mb-4">
-                <h4 class="text-lg font-bold text-black">ShoppingPedia</h4>
+    <div class="login-container">
+        <div class="left-section">
+            <div class="left-content">
+                <div class="left-title">Welcome back to Interio!</div>
+                <div class="left-text">Please login to access your account and start shopping.</div>
             </div>
-            <hr class="mb-6">
-            <form method="POST" action="{{ route('login') }}">
-                @csrf
-                <div class="mb-4">
-                    <input id="email" type="email" name="email" placeholder="Enter Your Email"
-                        class="w-full px-4 py-2 border border-gray-300 rounded-lg @error('email') border-red-500 @enderror"
-                        value="{{ old('email') }}" required autofocus>
-                    @error('email')
-                        <span class="text-sm text-red-500 mt-2 block">
-                            <strong>{{ $message }}</strong>
-                        </span>
-                    @enderror
-                </div>
-                <div class="mb-4">
-                    <input id="password" type="password" name="password" placeholder="Enter Your Password"
-                        class="w-full px-4 py-2 border border-gray-300 rounded-lg @error('password') border-red-500 @enderror"
-                        required>
-                    @error('password')
-                        <span class="text-sm text-red-500 mt-2 block">
-                            <strong>{{ $message }}</strong>
-                        </span>
-                    @enderror
-                </div>
-                <hr class="my-6">
-                <button type="submit"
-                    class="w-full py-2 bg-blue-500 text-white font-bold rounded-lg hover:bg-blue-600 transition">
-                    Log In
-                </button>
-            </form>
+        </div>
+        <div class="right-section">
+            <div class="login-form">
+                <h2 class="login-title">Welcome Back!</h2>
+                <p class="login-subtitle">Please log in to your account</p>
+                <form action="{{ route('login.user') }}" method="post">
+                    @csrf
+                    <div class="form-group">
+                        <input type="email" class="form-control" id="email" name="email" placeholder=" "
+                            required>
+                        <label class="form-label" for="email">Email</label>
+                    </div>
+                    <div class="form-group">
+                        <input type="password" class="form-control" id="password" name="password" placeholder=" "
+                            required>
+                        <label class="form-label" for="password">Password</label>
+                    </div>
+                    <button type="submit" class="login-btn">Login</button>
+                    <p class="signup-text">
+                        Don't have an account?<br>
+                        <a href="/signup" class="signup-link">Sign up</a>
+                    </p>
+                </form>
+            </div>
         </div>
     </div>
+    @include('sweetalert::alert')
 </body>
 
 </html>
