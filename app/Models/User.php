@@ -19,11 +19,11 @@ class User extends Authenticatable
      */
     protected $fillable = [
         'name',
+        'lname',
         'email',
         'password',
-        'role', 
+        'type',
     ];
-
 
     /**
      * The attributes that should be hidden for serialization.
@@ -43,4 +43,13 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+    public function carts()
+    {
+        return $this->hasMany(Cart::class, 'id_carts');
+    }
+
+    public function orders()
+    {
+        return $this->hasMany(Order::class, 'id_orders');
+    }
 }
