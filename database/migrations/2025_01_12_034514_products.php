@@ -13,16 +13,15 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('users', function (Blueprint $table) {
+        Schema::create('products', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('lname')->nullable(); // Tambahkan nullable di sini
-            $table->string('email')->unique();
-            $table->timestamp('email_verified_at')->nullable();
-            $table->string('password');
-            $table->string('type');
-            $table->rememberToken();
-            $table->timestamps();
+            $table->text('description');
+            $table->float('price');
+            $table->integer('quantity');
+            $table->string('img');
+            $table->unsignedBigInteger('id_categories');
+            $table->foreign('id_categories')->references('id')->on('categories')->onDelete('cascade');
         });
     }
 
@@ -33,6 +32,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('users');
+        Schema::dropIfExists('products');
     }
 };
