@@ -1,9 +1,9 @@
 <footer class="footer">
     <div class="container">
         <div class="row">
-            <div class="col-lg-3">
+            <div class="col-lg-2">
                 <div class="footer-img">
-                    <a class="navbar-brand" href="#">Interio.</a>
+                    <a class="navbar-brand" href="/">Interio.</a>
                     <p class="mt-4">Discover the best in home furniture, from living room to bedroom and more.</p>
                 </div>
             </div>
@@ -40,13 +40,12 @@
                     <li><i class="fa-solid fa-chevron-right"></i><a href="#">Track an order</a></li>
                 </ul>
             </div>
-            <div class="col-lg-3">
+            <div class="col-lg-4">
                 <div class="f-title">
                     <h3>Contact Info</h3>
                 </div>
                 <ul class="f-list">
-                    <li><i class="fa-solid fa-location-dot"></i><a href="#">1234 Elm Street, Furniture City</a>
-                    </li>
+                    <li><i class="fa-solid fa-location-dot"></i><a href="#">1234 Elm Street, Furniture City</a></li>
                     <li><i class="fa-solid fa-phone"></i><a href="tel:1234567890">123-456-7890</a></li>
                     <li><i class="fa-solid fa-envelope"></i><a href="mailto:info@megashop.com">info@megashop.com</a>
                     </li>
